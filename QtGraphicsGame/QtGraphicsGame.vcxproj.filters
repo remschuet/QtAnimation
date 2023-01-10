@@ -10,5 +10,55 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gameplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tower.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShooterTower.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Soldier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Event.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Game.h">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Gameplay.h">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <QtMoc Include="GraphicObject.h">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Tower.h">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ShooterTower.h">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Background.h">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Soldier.h">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Event.h">
+      <Filter>Source Files</Filter>
+    </QtMoc>
   </ItemGroup>
 </Project>

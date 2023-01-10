@@ -1,23 +1,16 @@
-#include <QtWidgets/QApplication>
 #include <QApplication>
-#include <QGraphicsScene.h>
-#include <QGraphicsView>
-#include <QTimer>
+#include <iostream>
+
+#include "Game.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    // Create scene
-    QGraphicsScene* scene = new QGraphicsScene();
+    const int SCENE_SIZE_X = 1000;
+    const int SCENE_SIZE_Y = 600;
 
-    // Add view
-    QGraphicsView* view = new QGraphicsView(scene);
-    view->show();
-    view->setFixedSize(200, 200);
-    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
+    Game* game = new Game(SCENE_SIZE_X, SCENE_SIZE_Y);
 
     return a.exec();
 }
