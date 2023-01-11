@@ -24,12 +24,23 @@ Event::Event(Gameplay* gameplay) : QGraphicsRectItem()
     // Timer for the soldier movement
     QTimer* timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(timerOutEvent()));
-    timer->start(1000);
+    timer->start(1000);    
+    
+    QTimer* timer2 = new QTimer();
+    connect(timer2, SIGNAL(timeout()), this, SLOT(timer100Milliseconds()));
+    timer2->start(100);
 }
 
 void Event::timerOutEvent()
 {
     gameplay->CreateSoldier();
+
+}
+
+void Event::timer100Milliseconds()
+{
+    gameplay->moveSoldier();
+    gameplay->shootWithTower();
 }
 
 void Event::keyReleaseEvent(QKeyEvent* event)

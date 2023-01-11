@@ -1,5 +1,6 @@
 #include <QApplication>
 #include <QTimer>
+#include <QGraphicsScene.h>	// scene()
 
 #include "GraphicObject.h" // parent
 
@@ -17,15 +18,15 @@ Soldier::Soldier(int posX, int posY) : GraphicObject(posX, posY)
 	setPixmap(picture);
 
 	setImageSize(picture.height(), picture.width());
-
-	// Timer
-	QTimer* timer = new QTimer();
-	connect(timer, SIGNAL(timeout()), this, SLOT(move()));
-
-	timer->start(100);
 }
 
-void Soldier::move()
+void Soldier::move(int moveX, int moveY)
 {
-	setPositionXY(this, 10, 0);
+	setPositionXY(this, moveX, moveY);
+}
+
+void Soldier::destroy()
+{
+	scene()->removeItem(this);
+	delete this;
 }

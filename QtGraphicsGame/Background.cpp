@@ -5,7 +5,6 @@
 
 #include "Background.h"
 
-
 Background::Background(int posX, int posY) : GraphicObject(posX, posY)
 {
 	printf("\n Background create");

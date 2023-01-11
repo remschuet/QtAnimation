@@ -20,6 +20,7 @@ public:
 
 private slots:
     void timerOutEvent();
+    void timer100Milliseconds();
 
 private:
     Gameplay* gameplay;

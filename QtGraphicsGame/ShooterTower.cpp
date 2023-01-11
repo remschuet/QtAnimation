@@ -11,14 +11,33 @@
 
 ShooterTower::ShooterTower(int posX, int posY) : GraphicObject(posX, posY)
 {
-	printf("\n ShooterTower create");
-	QPixmap picture("C:/Users/remsc/OneDrive/Documents/Visual Studio Projet/QtGraphicsGame/QtGraphicsGame/Image/ShooterTower.png");
+	QPixmap picture("C:/Users/remsc/OneDrive/Documents/Visual Studio Projet/QtGraphicsGame/QtGraphicsGame/Image/ShooterTower1.png");
 
-	if (!(picture))
-		printf("\n -- ERROR loading ShooterTower image");
+	this->picture = picture;
 
-	setPixmap(picture);
+	if (!(this->picture))
+		printf("\n -- ERROR loading ShooterTower1 image");
 
-	setImageSize(picture.height(), picture.width());
+	setPixmap(this->picture);
+
+	setImageSize(this->picture.height(), this->picture.width());
 }
 
+void ShooterTower::changePicture()
+{
+	
+	if (this->firstImage)
+	{
+		QPixmap picture("C:/Users/remsc/OneDrive/Documents/Visual Studio Projet/QtGraphicsGame/QtGraphicsGame/Image/ShooterTower1.png");
+		this->picture = picture;
+		setPixmap(this->picture);
+		this->firstImage = false;
+	}
+	else
+	{
+		QPixmap picture("C:/Users/remsc/OneDrive/Documents/Visual Studio Projet/QtGraphicsGame/QtGraphicsGame/Image/ShooterTower2.png");
+		this->picture = picture;
+		setPixmap(this->picture);
+		this->firstImage = true;
+	}
+}

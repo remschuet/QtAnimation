@@ -10,6 +10,10 @@ class ShooterTower : public GraphicObject
 	Q_OBJECT
 public:
 	ShooterTower(int, int);
+	void changePicture();
+private:
+	QPixmap picture;
+	bool firstImage = false;
 };
 
 #endif // SHOOTERTOWER_H

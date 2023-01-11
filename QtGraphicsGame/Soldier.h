@@ -10,8 +10,8 @@ class Soldier : public GraphicObject
 	Q_OBJECT
 public:
 	Soldier(int, int);
-public slots:
-	void move();
+	void move(int, int);
+	void destroy();
 };
 
 #endif // Soldier
