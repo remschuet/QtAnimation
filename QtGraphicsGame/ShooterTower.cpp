@@ -9,7 +9,7 @@
 #include "ShooterTower.h"
 
 
-ShooterTower::ShooterTower()
+ShooterTower::ShooterTower(int posX, int posY) : GraphicObject(posX, posY)
 {
 	printf("\n ShooterTower create");
 	QPixmap picture("C:/Users/remsc/OneDrive/Documents/Visual Studio Projet/QtGraphicsGame/QtGraphicsGame/Image/ShooterTower.png");
@@ -18,11 +18,7 @@ ShooterTower::ShooterTower()
 		printf("\n -- ERROR loading ShooterTower image");
 
 	setPixmap(picture);
-	setPositionXY(this, 700, 230);
+
+	setImageSize(picture.height(), picture.width());
 }
 
-void ShooterTower::createSoldier()
-{
-	Soldier* soldier = new Soldier();
-	scene()->addItem(soldier);
-}

@@ -9,7 +9,7 @@ class Soldier : public GraphicObject
 {
 	Q_OBJECT
 public:
-	Soldier();
+	Soldier(int, int);
 public slots:
 	void move();
 };

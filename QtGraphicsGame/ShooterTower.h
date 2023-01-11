@@ -9,8 +9,7 @@ class ShooterTower : public GraphicObject
 {
 	Q_OBJECT
 public:
-	ShooterTower();
-	void createSoldier();
+	ShooterTower(int, int);
 };
 
 #endif // SHOOTERTOWER_H

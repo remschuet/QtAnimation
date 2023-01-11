@@ -6,7 +6,7 @@
 #include "Soldier.h"
 
 
-Soldier::Soldier()
+Soldier::Soldier(int posX, int posY) : GraphicObject(posX, posY)
 {
 	printf("\n Soldier create");
 	QPixmap picture("C:/Users/remsc/OneDrive/Documents/Visual Studio Projet/QtGraphicsGame/QtGraphicsGame/Image/Soldier.png");
@@ -15,7 +15,8 @@ Soldier::Soldier()
 		printf("\n -- ERROR loading Soldier image");
 
 	setPixmap(picture);
-	setPositionXY(this, 50, 270);
+
+	setImageSize(picture.height(), picture.width());
 
 	// Timer
 	QTimer* timer = new QTimer();

@@ -5,19 +5,19 @@
 #include <QTimer>
 #include <QKeyEvent>
 
-#include "ShooterTower.h"
+#include "Tower.h"
 #include "Event.h"
 
-Event::Event(ShooterTower* shooterTower) : QGraphicsRectItem()
+Event::Event(Tower* tower) : QGraphicsRectItem()
 {
-    this->shooterTower = shooterTower;
+    this->tower = tower;
     setRect(0, 0, 1, 1);
     setPos(0, 0);
     // Access the key event
     setFlag(QGraphicsItem::ItemIsFocusable);
     setFocus();
 
-    // Timer for the bullet movement
+    // Timer for the soldier movement
     QTimer* timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(timerOutEvent()));
     timer->start(1000);
@@ -25,7 +25,7 @@ Event::Event(ShooterTower* shooterTower) : QGraphicsRectItem()
 
 void Event::timerOutEvent()
 {
-    shooterTower->createSoldier();
+    tower->createSoldier();
 }
 
 void Event::keyReleaseEvent(QKeyEvent* event)

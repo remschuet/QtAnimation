@@ -24,20 +24,18 @@ Game::Game(int SCENE_SIZE_X, int SCENE_SIZE_Y) : QObject(), QGraphicsPixmapItem(
     scene->setSceneRect(0, 0, SCENE_SIZE_X, SCENE_SIZE_Y);
 
     // Add background
-    Background* background = new Background();
+    Background* background = new Background(0, 0);
     scene->addItem(background);
 
-    GraphicObject* graphicObject = new GraphicObject();
-    scene->addItem(graphicObject);
 
-    Tower* tower = new Tower();
+    Tower* tower = new Tower(20, 200);
     scene->addItem(tower);
 
-    ShooterTower* shooterTower = new ShooterTower();
+    ShooterTower* shooterTower = new ShooterTower(700, 230);
     scene->addItem(shooterTower);
 
     // Add Event management
-    Event* event = new Event(shooterTower);
+    Event* event = new Event(tower);
     scene->addItem(event);
 
 }

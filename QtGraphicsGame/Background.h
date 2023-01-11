@@ -9,7 +9,7 @@ class Background : public GraphicObject
 {
 	Q_OBJECT
 public:
-	Background();
+	Background(int, int);
 };
 
 #endif // BACKGROUND_H

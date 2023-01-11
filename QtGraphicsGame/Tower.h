@@ -9,7 +9,9 @@ class Tower : public GraphicObject
 {
 	Q_OBJECT
 public:
-	Tower();
+	Tower(int, int);
+	void createSoldier();
+
 };
 
 #endif // TOWER_H
