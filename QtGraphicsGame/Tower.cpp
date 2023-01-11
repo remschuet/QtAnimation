@@ -1,10 +1,9 @@
 #include <QApplication>
 #include <QTimer>
-#include <iostream>
+#include <iostream>			// Error message
 #include <QGraphicsScene.h>	// scene()
 
-#include "GraphicObject.h" // parent
-#include "Soldier.h"
+#include "GraphicObject.h"	// parent
 
 #include "Tower.h"
 
@@ -16,14 +15,4 @@ Tower::Tower(int posX, int posY) : GraphicObject(posX, posY)
 	setPixmap(picture);
 
 	setImageSize(picture.height(), picture.width());
-}
-
-void Tower::createSoldier()
-{
-	int posX = getPosX(this);
-	int posY = getPosY(this);
-	auto [imageX, imageY] = this->getImageSize();
-
-	Soldier* soldier = new Soldier(posX + imageX / 2, posY + imageY / 2);
-	scene()->addItem(soldier);
 }

@@ -5,7 +5,6 @@
 #include <QTimer>
 #include <QKeyEvent>
 
-#include "Tower.h"
 #include "Event.h"
 #include "Gameplay.h"
 

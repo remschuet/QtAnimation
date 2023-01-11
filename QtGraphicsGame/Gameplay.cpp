@@ -4,7 +4,6 @@
 #include <QGraphicsPixmapItem>
 
 #include "Gameplay.h" // Class
-#include "GraphicObject.h"
 
 #include "Tower.h"
 #include "ShooterTower.h"

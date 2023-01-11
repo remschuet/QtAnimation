@@ -2,12 +2,8 @@
 #include <QGraphicsScene.h>
 #include <QGraphicsView>
 
-#include "Game.h"
-#include "Gameplay.h"
-#include "GraphicObject.h"
-#include "Tower.h"
-#include "ShooterTower.h"
-#include "Background.h"
+#include "Game.h"   // Class
+
 #include "Event.h"
 #include "Gameplay.h"
 
