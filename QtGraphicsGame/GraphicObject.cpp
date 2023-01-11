@@ -40,3 +40,13 @@ std::tuple<int, int> GraphicObject::getImageSize()
 	std::cout << imageX << imageY;
 	*/
 }
+
+int GraphicObject::getImageSizeX()
+{
+	return this->pictureWidth;
+}
+
+int GraphicObject::getImageSizeY()
+{
+	return this->pictureHeight;
+}

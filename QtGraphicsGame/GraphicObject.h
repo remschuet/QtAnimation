@@ -14,6 +14,8 @@ public:
     void setImageSize(int, int);
     int getPosX(GraphicObject*);
     int getPosY(GraphicObject*);
+    int getImageSizeX();
+    int getImageSizeY();
     std::tuple<int, int> getImageSize();
 
 protected:

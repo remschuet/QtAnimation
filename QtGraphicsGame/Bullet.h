@@ -12,8 +12,10 @@ public:
 	Bullet(int, int, std::string);
 	void move();
 	void destroy();
+	int GetNumberOfTimeMove();
 private:
 	std::string direction;
+	int numberOfTimeMove = 0;
 };
 
 #endif // BULLET_H

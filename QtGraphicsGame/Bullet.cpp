@@ -21,6 +21,7 @@ Bullet::Bullet(int posX, int posY, std::string direction) : GraphicObject(posX, 
 
 void Bullet::move()
 {
+	this->numberOfTimeMove++;
 	if (this->direction == "left")
 		setPositionXY(this, -10, 0);
 }
@@ -29,4 +30,9 @@ void Bullet::destroy()
 {
 	scene()->removeItem(this);
 	delete this;
+}
+
+int Bullet::GetNumberOfTimeMove()
+{
+	return this->numberOfTimeMove;
 }

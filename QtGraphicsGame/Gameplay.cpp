@@ -96,6 +96,13 @@ void Gameplay::moveBullet()
 			printf("\n bullet destroy");
 			break;
 		}
+		if (bullet->GetNumberOfTimeMove() >= 25)
+		{
+			bullet->destroy();
+			this->Bulletlist.remove(bullet);
+			printf("\n bullet destroy");
+			break;
+		}
 		bullet->move();
 	}
 }
