@@ -29,6 +29,10 @@ Event::Event(Gameplay* gameplay) : QGraphicsRectItem()
     QTimer* timer2 = new QTimer();
     connect(timer2, SIGNAL(timeout()), this, SLOT(timer100Milliseconds()));
     timer2->start(100);
+
+    QTimer* timer3 = new QTimer();
+    connect(timer3, SIGNAL(timeout()), this, SLOT(timer50Milliseconds()));
+    timer3->start(30);
 }
 
 void Event::timerOutEvent()
@@ -41,6 +45,12 @@ void Event::timer100Milliseconds()
 {
     gameplay->moveSoldier();
     gameplay->shootWithTower();
+}
+
+void Event::timer50Milliseconds()
+{
+    gameplay->moveBullet();
+
 }
 
 void Event::keyReleaseEvent(QKeyEvent* event)

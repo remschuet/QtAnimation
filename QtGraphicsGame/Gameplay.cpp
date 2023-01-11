@@ -9,6 +9,7 @@
 #include "ShooterTower.h"
 #include "Background.h"
 #include "Soldier.h"
+#include "Bullet.h"
 
 
 Gameplay::Gameplay(int SCENE_SIZE_X, int SCENE_SIZE_Y) : QObject(), QGraphicsPixmapItem()
@@ -31,7 +32,7 @@ void Gameplay::createFirstWorld()
 	scene()->addItem(shooterTower);
 	this->ShooterTowerlist.push_back(shooterTower);
 
-	Tower* tower1 = new Tower(20, 200);
+	Tower* tower1 = new Tower(100, 250);
 	scene()->addItem(tower1);
 	this->Towerlist.push_back(tower1);
 }
@@ -83,10 +84,35 @@ void Gameplay::moveSoldier()
 	}
 }
 
+void Gameplay::moveBullet()
+{
+	for (auto const& bullet : this->Bulletlist)
+	{
+		if (bullet->getPosX(bullet) > this->SCENE_SIZE_X || bullet->getPosX(bullet) < 0 ||
+			bullet->getPosY(bullet) > this->SCENE_SIZE_Y || bullet->getPosY(bullet) < 0)
+		{
+			bullet->destroy();
+			this->Bulletlist.remove(bullet);
+			printf("\n bullet destroy");
+			break;
+		}
+		bullet->move();
+	}
+}
+
 void Gameplay::shootWithTower()
 {
 	for (auto const& shooterTower : this->ShooterTowerlist)
 	{
+		auto [shooterTowerImageX, shooterTowerImageY] = shooterTower->getImageSize();
+
+		int posX = shooterTower->getPosX(shooterTower);
+		int posY = shooterTower->getPosY(shooterTower) + shooterTowerImageY / 2;
+		
+		Bullet* bullet = new Bullet(posX, posY, "left");
+		scene()->addItem(bullet);
+		this->Bulletlist.push_back(bullet);
+
 		shooterTower->changePicture();
 	}
 }
