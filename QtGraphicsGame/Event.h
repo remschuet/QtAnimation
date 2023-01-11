@@ -5,14 +5,14 @@
 #include <QObject>
 #include <List>
 
-#include "Tower.h"
+#include "Gameplay.h"
 #include "event.h"
 
 class Event : public QObject, public QGraphicsRectItem // QObject for timer
 {
     Q_OBJECT
 public:
-    Event(Tower* tower);
+    Event(Gameplay* gameplay);
     void keyPressEvent(QKeyEvent* event);
     void keyReleaseEvent(QKeyEvent* e);
 
@@ -22,7 +22,7 @@ private slots:
     void timerOutEvent();
 
 private:
-    Tower* tower;
+    Gameplay* gameplay;
 
 };
 

@@ -3,12 +3,17 @@
 
 #include <QGraphicsRectItem>
 #include <QObject>
+#include <QGraphicsPixmapItem>
 
-class Gameplay : public QObject, public QGraphicsRectItem
+
+class Gameplay : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    Gameplay();
+    Gameplay(int, int);
+    void createFirstWorld();
+    void CreateSoldier();
+
 };
 
 #endif // SCENE_H

@@ -5,7 +5,6 @@
 #include <QObject>
 #include <tuple>
 
-
 class GraphicObject : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT

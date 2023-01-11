@@ -7,15 +7,20 @@
 
 #include "Tower.h"
 #include "Event.h"
+#include "Gameplay.h"
 
-Event::Event(Tower* tower) : QGraphicsRectItem()
+Event::Event(Gameplay* gameplay) : QGraphicsRectItem()
 {
-    this->tower = tower;
+    this->gameplay = gameplay;
     setRect(0, 0, 1, 1);
     setPos(0, 0);
+
     // Access the key event
     setFlag(QGraphicsItem::ItemIsFocusable);
-    setFocus();
+    setFocus(); // Can create in scene
+
+    // Create first World
+    this->gameplay->createFirstWorld();
 
     // Timer for the soldier movement
     QTimer* timer = new QTimer();
@@ -25,7 +30,7 @@ Event::Event(Tower* tower) : QGraphicsRectItem()
 
 void Event::timerOutEvent()
 {
-    tower->createSoldier();
+    gameplay->CreateSoldier();
 }
 
 void Event::keyReleaseEvent(QKeyEvent* event)

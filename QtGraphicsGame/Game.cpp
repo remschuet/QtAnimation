@@ -9,6 +9,7 @@
 #include "ShooterTower.h"
 #include "Background.h"
 #include "Event.h"
+#include "Gameplay.h"
 
 Game::Game(int SCENE_SIZE_X, int SCENE_SIZE_Y) : QObject(), QGraphicsPixmapItem()
 {
@@ -23,19 +24,12 @@ Game::Game(int SCENE_SIZE_X, int SCENE_SIZE_Y) : QObject(), QGraphicsPixmapItem(
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     scene->setSceneRect(0, 0, SCENE_SIZE_X, SCENE_SIZE_Y);
 
-    // Add background
-    Background* background = new Background(0, 0);
-    scene->addItem(background);
-
-
-    Tower* tower = new Tower(20, 200);
-    scene->addItem(tower);
-
-    ShooterTower* shooterTower = new ShooterTower(700, 230);
-    scene->addItem(shooterTower);
+    // Add Gameplay
+    Gameplay* gameplay = new Gameplay(SCENE_SIZE_X, SCENE_SIZE_Y);
+    scene->addItem(gameplay);
 
     // Add Event management
-    Event* event = new Event(tower);
+    Event* event = new Event(gameplay);
     scene->addItem(event);
 
 }

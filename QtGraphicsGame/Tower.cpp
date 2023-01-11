@@ -8,7 +8,6 @@
 
 #include "Tower.h"
 
-
 Tower::Tower(int posX, int posY) : GraphicObject(posX, posY)
 {
 	QPixmap picture("C:/Users/remsc/OneDrive/Documents/Visual Studio Projet/QtGraphicsGame/QtGraphicsGame/Image/Tower.png");
@@ -25,6 +24,6 @@ void Tower::createSoldier()
 	int posY = getPosY(this);
 	auto [imageX, imageY] = this->getImageSize();
 
-	Soldier* soldier = new Soldier(posX, posY);
+	Soldier* soldier = new Soldier(posX + imageX / 2, posY + imageY / 2);
 	scene()->addItem(soldier);
 }

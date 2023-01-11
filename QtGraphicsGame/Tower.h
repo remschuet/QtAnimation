@@ -2,6 +2,7 @@
 #define TOWER_H
 
 #include <QObject>
+#include <QGraphicsScene.h>	// scene()
 
 #include "GraphicObject.h"
 
