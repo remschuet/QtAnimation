@@ -32,13 +32,21 @@ void Event::timerOutEvent()
     this->timerCall += FRAMES_PER_SECOND;
 
     if (this->timerCall % 1000 == 0)
+    {
         gameplay->CreateSoldier();
+        gameplay->shootWithTower();
+        this->shootTowerTimerImage = this->timerCall;
+        this->firstShoot = true;
+    }
     if (this->timerCall % 50 == 0)
         gameplay->managementBullets();
     if (this->timerCall % 100 == 0)
     {
         gameplay->moveSoldier();
-        gameplay->shootWithTower();
+    }
+    if (this->firstShoot && this->timerCall % (this->shootTowerTimerImage + 100) == 0)
+    {
+        gameplay->changeImage();
     }
 }
 

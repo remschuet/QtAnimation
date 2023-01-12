@@ -1,6 +1,9 @@
 #include <QApplication>
 #include <QTimer>
 #include <QGraphicsScene.h>
+#include<ctime>
+#include<cstdio>
+
 
 
 #include "GraphicObject.h" // parent
@@ -25,7 +28,6 @@ ShooterTower::ShooterTower(int posX, int posY) : GraphicObject(posX, posY)
 
 void ShooterTower::changePicture()
 {
-	
 	if (this->firstImage)
 	{
 		QPixmap picture("C:/Users/remsc/OneDrive/Documents/Visual Studio Projet/QtGraphicsGame/QtGraphicsGame/Image/ShooterTower1.png");

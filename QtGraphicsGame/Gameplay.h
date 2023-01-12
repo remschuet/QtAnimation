@@ -21,6 +21,7 @@ public:
     void managementBullets();
     void moveBullet(Bullet* bullet);
     void shootWithTower();
+    void changeImage();
 private:
     std::list<Tower*> Towerlist;
     std::list<ShooterTower*> ShooterTowerlist;

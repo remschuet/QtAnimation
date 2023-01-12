@@ -11,6 +11,7 @@ class ShooterTower : public GraphicObject
 public:
 	ShooterTower(int, int);
 	void changePicture();
+
 private:
 	QPixmap picture;
 	bool firstImage = false;

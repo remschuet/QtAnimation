@@ -5,6 +5,7 @@
 
 #include "Gameplay.h" // Class
 
+
 #include "Tower.h"
 #include "ShooterTower.h"
 #include "Background.h"
@@ -16,6 +17,9 @@ Gameplay::Gameplay(int SCENE_SIZE_X, int SCENE_SIZE_Y) : QObject(), QGraphicsPix
 {
 	this->SCENE_SIZE_X = SCENE_SIZE_X;
 	this->SCENE_SIZE_Y = SCENE_SIZE_Y;
+	
+	// reset random
+	srand(time(0));
 
 	// Access the key event
 	setFlag(QGraphicsItem::ItemIsFocusable);
@@ -143,4 +147,10 @@ void Gameplay::shootWithTower()
 
 		shooterTower->changePicture();
 	}
+}
+
+void Gameplay::changeImage()
+{
+	for (auto const& shooterTower : this->ShooterTowerlist)
+	shooterTower->changePicture();
 }

@@ -25,6 +25,8 @@ private:
     Gameplay* gameplay;
     const int FRAMES_PER_SECOND = 10;
     int timerCall = 0;
+    int shootTowerTimerImage = 0;
+    bool firstShoot = false;
 
 };
 
