@@ -38,7 +38,6 @@ Event::Event(Gameplay* gameplay) : QGraphicsRectItem()
 void Event::timerOutEvent()
 {
     gameplay->CreateSoldier();
-
 }
 
 void Event::timer100Milliseconds()
@@ -49,8 +48,7 @@ void Event::timer100Milliseconds()
 
 void Event::timer50Milliseconds()
 {
-    gameplay->moveBullet();
-
+    gameplay->managementBullets();
 }
 
 void Event::keyReleaseEvent(QKeyEvent* event)

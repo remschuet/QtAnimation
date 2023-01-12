@@ -10,7 +10,7 @@
 #include "Background.h"
 #include "Soldier.h"
 #include "Bullet.h"
-
+#include "Collision.h"
 
 Gameplay::Gameplay(int SCENE_SIZE_X, int SCENE_SIZE_Y) : QObject(), QGraphicsPixmapItem()
 {
@@ -19,7 +19,7 @@ Gameplay::Gameplay(int SCENE_SIZE_X, int SCENE_SIZE_Y) : QObject(), QGraphicsPix
 
 	// Access the key event
 	setFlag(QGraphicsItem::ItemIsFocusable);
-	setFocus(); // Can create in scene
+	setFocus();
 }
 
 void Gameplay::createFirstWorld()
@@ -35,6 +35,11 @@ void Gameplay::createFirstWorld()
 	Tower* tower1 = new Tower(100, 250);
 	scene()->addItem(tower1);
 	this->Towerlist.push_back(tower1);
+
+	// Create collision managemement
+	Collision* collision = new Collision();
+	scene()->addItem(collision);
+	this->collision = collision;
 }
 
 void Gameplay::CreateSoldier()
@@ -84,7 +89,7 @@ void Gameplay::moveSoldier()
 	}
 }
 
-void Gameplay::moveBullet()
+void Gameplay::managementBullets()
 {
 	for (auto const& bullet : this->Bulletlist)
 	{
@@ -96,6 +101,7 @@ void Gameplay::moveBullet()
 			printf("\n bullet destroy");
 			break;
 		}
+
 		if (bullet->GetNumberOfTimeMove() >= 25)
 		{
 			bullet->destroy();
@@ -103,8 +109,23 @@ void Gameplay::moveBullet()
 			printf("\n bullet destroy");
 			break;
 		}
-		bullet->move();
+
+		if (this->collision->bulletIsCollided(bullet, this->Soldierlist))
+		{	// Remove soldier in Collision										FIXE ME si je met dans une for pour envoyer seuelement soldier
+			bullet->destroy();
+			this->Bulletlist.remove(bullet);
+			break;
+		}
+		else
+		{
+			moveBullet(bullet);
+		}
 	}
+}
+
+void Gameplay::moveBullet(Bullet* bullet)
+{
+		bullet->move();
 }
 
 void Gameplay::shootWithTower()

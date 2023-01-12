@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GraphicObject.cpp" />
@@ -48,6 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Bullet.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Collision.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B63F73E0-6FE6-4340-81D4-5BDEC3685F41}</ProjectGuid>
