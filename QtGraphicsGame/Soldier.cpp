@@ -1,6 +1,7 @@
 #include <QApplication>
 #include <QTimer>
 #include <QGraphicsScene.h>	// scene()
+#include <iostream>
 
 #include "GraphicObject.h" // parent
 
@@ -29,4 +30,9 @@ void Soldier::destroy()
 {
 	scene()->removeItem(this);
 	delete this;
+}
+
+void Soldier::printMessage(std::string msg)
+{
+	std::cout << msg;
 }

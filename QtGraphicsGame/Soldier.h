@@ -12,6 +12,7 @@ public:
 	Soldier(int, int);
 	void move(int, int);
 	void destroy();
+	void printMessage(std::string);
 };
 
 #endif // Soldier

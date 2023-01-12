@@ -13,8 +13,11 @@ class Collision : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    Collision();
-    bool bulletIsCollided(Bullet*, std::list<Soldier*>);
+    Collision(std::list<Bullet*>, std::list<Soldier*>);
+    bool bulletIsCollided(Bullet*, std::list<Soldier*>&);
+private:
+    std::list<Bullet*> Bulletlist;
+    std::list<Soldier*> Soldierlist;
 };
 
 #endif // COLLISION_H

@@ -5,13 +5,16 @@
 
 #include "Collision.h" // Class
 #include "Bullet.h"
+#include "Soldier.h"
 
-Collision::Collision() : QObject(), QGraphicsPixmapItem() 
+Collision::Collision(std::list<Bullet*> Bulletlist, std::list<Soldier*> Soldierlist) : QObject(), QGraphicsPixmapItem()
 {
+	this->Bulletlist = Bulletlist;
+	this->Soldierlist = Soldierlist;
 	printf("\ncreate Collision");
 }
 
-bool Collision::bulletIsCollided(Bullet* bullet, std::list<Soldier*> SoldierList)
+bool Collision::bulletIsCollided(Bullet* bullet, std::list<Soldier*> & SoldierList)
 {
 	for (auto const& soldier : SoldierList)
 	{
@@ -20,8 +23,8 @@ bool Collision::bulletIsCollided(Bullet* bullet, std::list<Soldier*> SoldierList
 			bullet->getPosY(bullet) + bullet->getImageSizeY() >= soldier->getPosY(soldier) &&
 			bullet->getPosY(bullet) <= soldier->getPosY(soldier) + soldier->getImageSizeY())
 		{
-			// soldier->destroy();
-			// SoldierList.remove(soldier);
+			soldier->destroy();
+			SoldierList.remove(soldier);
 			return true;
 		}
 	}

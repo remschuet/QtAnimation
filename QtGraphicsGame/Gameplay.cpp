@@ -37,7 +37,7 @@ void Gameplay::createFirstWorld()
 	this->Towerlist.push_back(tower1);
 
 	// Create collision managemement
-	Collision* collision = new Collision();
+	Collision* collision = new Collision(Bulletlist, Soldierlist);
 	scene()->addItem(collision);
 	this->collision = collision;
 }
