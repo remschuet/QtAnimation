@@ -36,9 +36,13 @@ void Gameplay::createFirstWorld()
 	scene()->addItem(shooterTower);
 	this->ShooterTowerlist.push_back(shooterTower);
 
-	Tower* tower1 = new Tower(100, 250);
+	Tower* tower1 = new Tower(50, 100);
 	scene()->addItem(tower1);
 	this->Towerlist.push_back(tower1);
+
+	Tower* tower2 = new Tower(100, 450);
+	scene()->addItem(tower2);
+	this->Towerlist.push_back(tower2);
 
 	// Create collision managemement
 	Collision* collision = new Collision(Bulletlist, Soldierlist);
