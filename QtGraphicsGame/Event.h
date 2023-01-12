@@ -20,11 +20,11 @@ public:
 
 private slots:
     void timerOutEvent();
-    void timer100Milliseconds();
-    void timer50Milliseconds();
 
 private:
     Gameplay* gameplay;
+    const int FRAMES_PER_SECOND = 10;
+    int timerCall = 0;
 
 };
 

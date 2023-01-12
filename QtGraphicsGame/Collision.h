@@ -15,7 +15,6 @@ class Collision : public QObject, public QGraphicsPixmapItem
 public:
     Collision();
     bool bulletIsCollided(Bullet*, std::list<Soldier*>);
-
 };
 
 #endif // COLLISION_H
