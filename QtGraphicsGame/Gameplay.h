@@ -9,6 +9,7 @@
 #include "Bullet.h"
 #include "ShooterTower.h"
 #include "Collision.h"
+#include "Blood.h"
 
 class Gameplay : public QObject, public QGraphicsPixmapItem
 {
@@ -21,12 +22,14 @@ public:
     void managementBullets();
     void moveBullet(Bullet* bullet);
     void shootWithTower();
+    void addBlood(int, int);
     void changeImage();
 private:
     std::list<Tower*> Towerlist;
     std::list<ShooterTower*> ShooterTowerlist;
     std::list<Soldier*> Soldierlist;
     std::list<Bullet*> Bulletlist;
+    std::list<Blood*> Bloodlist;
     int SCENE_SIZE_X;
     int SCENE_SIZE_Y;
     Collision* collision;

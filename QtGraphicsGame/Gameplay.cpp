@@ -12,6 +12,7 @@
 #include "Soldier.h"
 #include "Bullet.h"
 #include "Collision.h"
+#include "Blood.h"
 
 Gameplay::Gameplay(int SCENE_SIZE_X, int SCENE_SIZE_Y) : QObject(), QGraphicsPixmapItem()
 {
@@ -32,7 +33,7 @@ void Gameplay::createFirstWorld()
 	Background* background = new Background(0, 0);
 	scene()->addItem(background);
 
-	ShooterTower* shooterTower = new ShooterTower(700, 200);
+	ShooterTower* shooterTower = new ShooterTower(700, 190);
 	scene()->addItem(shooterTower);
 	this->ShooterTowerlist.push_back(shooterTower);
 
@@ -120,6 +121,7 @@ void Gameplay::managementBullets()
 
 		if (this->collision->bulletIsCollided(bullet, this->Soldierlist))
 		{	// Remove soldier in Collision										FIXE ME si je met dans une for pour envoyer seuelement soldier
+			addBlood(bullet->getPosX(bullet), bullet->getPosY(bullet));
 			bullet->destroy();
 			this->Bulletlist.remove(bullet);
 			break;
@@ -129,6 +131,13 @@ void Gameplay::managementBullets()
 			moveBullet(bullet);
 		}
 	}
+}
+
+void Gameplay::addBlood(int posX, int posY)
+{
+	Blood* blood = new Blood(posX - 10, posY - 10);
+	scene()->addItem(blood);
+	this->Bloodlist.push_back(blood);
 }
 
 void Gameplay::moveBullet(Bullet* bullet)
