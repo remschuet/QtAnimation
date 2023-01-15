@@ -31,3 +31,21 @@ bool Collision::bulletIsCollided(Bullet* bullet, std::list<Soldier*> & SoldierLi
 	return false;
 
 }
+
+bool Collision::soldierIsCollided(Soldier* soldier, std::list<ShooterTower*>& shooterTowerList)
+{
+	for (auto const& shooterTower : shooterTowerList)
+	{
+		if (soldier->getPosX(soldier) + soldier->getImageSizeX() >= shooterTower->getPosX(shooterTower) &&
+			soldier->getPosX(soldier) <= shooterTower->getPosX(shooterTower) + shooterTower->getImageSizeX() &&
+			soldier->getPosY(soldier) + soldier->getImageSizeY() >= shooterTower->getPosY(shooterTower) &&
+			soldier->getPosY(soldier) <= shooterTower->getPosY(shooterTower) + shooterTower->getImageSizeY())
+		{
+			shooterTower->destroy();
+			shooterTowerList.remove(shooterTower);
+			return true;
+			printf("Collision soldier shooterTower");
+		}
+		return false;
+	}
+}

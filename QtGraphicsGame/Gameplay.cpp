@@ -13,6 +13,8 @@
 #include "Bullet.h"
 #include "Collision.h"
 #include "Blood.h"
+#include "TowerExplosion.h"
+
 
 Gameplay::Gameplay(int SCENE_SIZE_X, int SCENE_SIZE_Y) : QObject(), QGraphicsPixmapItem()
 {
@@ -72,7 +74,16 @@ void Gameplay::moveSoldier()
 			soldier->destroy();
 			this->Soldierlist.remove(soldier);
 			printf("\n Soldier destroy");
+			// Create Explosion
 			break;
+		}
+		if (this->collision->soldierIsCollided(soldier, this->ShooterTowerlist))
+		{	// Remove ShooterTower in Collision										FIXE ME si je met dans une for pour envoyer seuelement shooterTower
+				TowerExplosion* towerExplosion = new TowerExplosion(soldier->getPosX(soldier), soldier->getPosY(soldier) - 50);
+				scene()->addItem(towerExplosion);
+				soldier->destroy();
+				this->Soldierlist.remove(soldier);
+				break;
 		}
 		for (auto const& shooterTower : this->ShooterTowerlist)	// work with just one ShooterTower
 		{	// calcul the closer

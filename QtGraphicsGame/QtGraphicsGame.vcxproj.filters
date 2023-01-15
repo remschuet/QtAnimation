@@ -43,6 +43,9 @@
     <ClCompile Include="Blood.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TowerExplosion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Game.h">
@@ -76,6 +79,9 @@
       <Filter>Source Files</Filter>
     </QtMoc>
     <QtMoc Include="Blood.h">
+      <Filter>Source Files</Filter>
+    </QtMoc>
+    <QtMoc Include="TowerExplosion.h">
       <Filter>Source Files</Filter>
     </QtMoc>
   </ItemGroup>

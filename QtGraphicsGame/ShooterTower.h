@@ -11,10 +11,12 @@ class ShooterTower : public GraphicObject
 public:
 	ShooterTower(int, int);
 	void changePicture();
-
+	void pictureExplosion();
+	void destroy();
 private:
 	QPixmap picture;
 	bool firstImage = false;
+	int explosionImage = 0;
 };
 
 #endif // SHOOTERTOWER_H

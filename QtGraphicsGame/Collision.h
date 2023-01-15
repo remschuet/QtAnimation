@@ -15,6 +15,7 @@ class Collision : public QObject, public QGraphicsPixmapItem
 public:
     Collision(std::list<Bullet*>, std::list<Soldier*>);
     bool bulletIsCollided(Bullet*, std::list<Soldier*>&);
+    bool soldierIsCollided(Soldier*, std::list<ShooterTower*>&);
 private:
     std::list<Bullet*> Bulletlist;
     std::list<Soldier*> Soldierlist;

@@ -14,7 +14,8 @@
 
 ShooterTower::ShooterTower(int posX, int posY) : GraphicObject(posX, posY)
 {
-	QPixmap picture("C:/Users/remsc/OneDrive/Documents/Visual Studio Projet/QtGraphicsGame/QtGraphicsGame/Image/ShooterTower1.png");
+	QString bob = "C:/Users/remsc/OneDrive/Documents/Visual Studio Projet/QtGraphicsGame/QtGraphicsGame/Image/ShooterTower1.png";
+	QPixmap picture(bob);
 
 	this->picture = picture;
 
@@ -42,4 +43,25 @@ void ShooterTower::changePicture()
 		setPixmap(this->picture);
 		this->firstImage = true;
 	}
+}
+
+void ShooterTower::pictureExplosion()
+{
+	explosionImage++;
+	if (explosionImage = 1)
+	{
+		QPixmap picture("C:/Users/remsc/OneDrive/Documents/Visual Studio Projet/QtGraphicsGame/QtGraphicsGame/Image/backup/explosion1.png");
+		this->picture = picture;
+		setPixmap(this->picture);
+	}
+	else
+	{
+		printf("ERROR LOADING exposionImage");
+	}	
+}
+
+void ShooterTower::destroy()
+{
+	scene()->removeItem(this);
+	delete this;
 }

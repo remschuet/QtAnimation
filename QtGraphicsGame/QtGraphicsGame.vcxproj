@@ -23,6 +23,7 @@
     <ClCompile Include="ShooterTower.cpp" />
     <ClCompile Include="Soldier.cpp" />
     <ClCompile Include="Tower.cpp" />
+    <ClCompile Include="TowerExplosion.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Game.h" />
@@ -56,6 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Blood.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="TowerExplosion.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B63F73E0-6FE6-4340-81D4-5BDEC3685F41}</ProjectGuid>
